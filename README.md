@@ -6,6 +6,12 @@ Proyecto Windows x64 con menú dentro del juego, código fuente, dependencias in
 
 Para instalar el binario usa [INSTALAR](docs/INSTALAR.md). Para generar otro desde el navegador sigue [COMPILAR](docs/COMPILAR.md). **No se ejecutó este ASI dentro de Crimson Desert ni se probó su importación concreta en DMM.**
 
+## Descargar e instalar
+
+**[Descargar el ZIP compilado para DMM](distribucion/DesiertoSeguro-0.3-DMM.zip)**. Abre el archivo en GitHub y pulsa **Download raw file**. Ese paquete se conserva en el repositorio y no depende de la caducidad de Artifacts.
+
+La [ejecución nativa de Windows y sus pruebas terminó correctamente](https://github.com/lddurazo23/Crimson-Desert/actions/runs/40127752982). El ZIP contiene directamente `DesiertoSeguro.asi`, instrucciones, licencias y `SHA256SUMS.txt`. Impórtalo en DMM con el juego cerrado y usa el loader administrado por DMM. Presiona Home dentro del juego.
+
 ## Base elegida
 
 **C++20 x64, CMake, MinHook 1.3.4, Dear ImGui 1.91.9b, Direct3D 12 y Ultimate ASI Loader x64 administrado por DMM.** DirectX 12 figura en los requisitos oficiales; los mods abiertos revisados documentan esta base ASI y menús DX12. Se observa la swapchain y su command queue mediante interfaces COM públicas, y se interceptan presentación y redimensión. Las bibliotecas del menú y de hooks vienen incluidas y fijadas por revisión. [Fuentes](docs/FUENTES.md).

@@ -1,0 +1,16 @@
+{
+  "version": "0.3",
+  "compilador": "MSVC / MASM / Windows 2022",
+  "fuente_commit": "7745b8321da71b2178bbf6984a2674bbd89f4b45",
+  "workflow_url": "https://github.com/lddurazo23/Crimson-Desert/actions/runs/40127752982",
+  "artifact_id": 12573479629,
+  "zip_bytes": 635813,
+  "zip_sha256": "25d7074208bcf80d1e8b6ac378b4f4c77511f10a46ade4438663a2939fddd744",
+  "asi_bytes": 1043968,
+  "asi_sha256": "454ec53939fa3e36b02698ae1a7a77f64928461460211a782f1bd7d496643ca1",
+  "formato": "PE32+ DLL AMD64",
+  "pruebas_portatiles": "aprobadas en Ubuntu de GitHub",
+  "compilacion_y_CTest": "aprobados en Windows de GitHub",
+  "prueba_en_juego": false,
+  "importacion_DMM_probada": false
+}

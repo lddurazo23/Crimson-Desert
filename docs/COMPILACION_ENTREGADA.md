@@ -8,7 +8,7 @@ La compilación cruzada usa **LLVM-MinGW 20261020 UCRT**, Clang 23.1.4, en Linux
 
 Las comprobaciones y su alcance se registran en [PRUEBAS](PRUEBAS.md). Compilar comprueba sintaxis y enlace; el examen PE comprueba formato y arquitectura. Las simulaciones prueban rutas del código con memoria sintética. Ninguna demuestra que las firmas correspondan al EXE del usuario, ni la persistencia o estabilidad de una partida.
 
-**No se ejecutó este ASI dentro de Crimson Desert, no se probó la importación concreta en DMM y no se ejecutó el workflow MSVC en una cuenta del usuario.** El proyecto 0.3 tampoco se presenta como cumplimiento del 100 % de todas las funciones originales: la tabla del README identifica capacidades parciales y alternativas.
+**El workflow MSVC/MASM sí se ejecutó y terminó correctamente en el repositorio del usuario. No se ejecutó este ASI dentro de Crimson Desert ni se probó la importación concreta en DMM.** El proyecto 0.3 tampoco se presenta como cumplimiento del 100 % de todas las funciones originales: la tabla del README identifica capacidades parciales y alternativas.
 
 El workflow compila de forma nativa con MSVC en Windows y producirá otro binario cuyo hash será distinto. Sigue [COMPILAR](COMPILAR.md) para generarlo desde el navegador. El empaquetador registra su SHA-256.
 
@@ -19,3 +19,10 @@ python3 scripts/compilar_cruzado.py /ruta/a/llvm-mingw-20261020-ucrt-ubuntu-22.0
 ```
 
 El script no descarga fuentes. Las dependencias vienen incluidas y fijadas por revisión. Las licencias de las adaptaciones y del runtime se conservan. `FUENTES_COMPILADAS_SHA256.txt` identifica los archivos del resultado cuando se regenera después del último cambio; un archivo histórico de otra revisión no sirve como prueba del código actual.
+
+
+## Resultado nativo de GitHub
+
+[Pruebas y compilación aprobadas](https://github.com/lddurazo23/Crimson-Desert/actions/runs/40127752982). El ZIP original de ese artifact se conserva sin cambios en `distribucion/DesiertoSeguro-0.3-DMM.zip`, con el ASI en su raíz. `RESULTADO_WINDOWS_0_3.json` registra las huellas del ZIP y del ASI nativo. El reporte `VERIFICACION_BINARIO.json` anterior identifica la compilación local LLVM y su hash diferente.
+
+La documentación incluida dentro del ZIP es la instantánea generada durante el workflow, antes de este registro posterior de resultados. El binario nativo y el ZIP distribuido son exactamente los que aprobó esa ejecución.

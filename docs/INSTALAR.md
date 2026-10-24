@@ -1,6 +1,6 @@
 # Instalar el ASI desde Definitive Mod Manager
 
-**Usa el archivo `DesiertoSeguro-0.3-DMM.zip` compilado, no el ZIP del proyecto de código.** Si todavía no tienes ese resultado, [GitHub Actions lo genera por ti](COMPILAR.md). El mod es experimental. Incluye capacidades implementadas, rutas bloqueadas por datos y alternativas de alcance limitado; revisa la tabla de `README.md` antes de usarlo. No se presenta como cumplimiento de todas las funciones originales al 100 %.
+**Usa el archivo `DesiertoSeguro-0.3-DMM.zip` compilado, no el ZIP del proyecto de código.** Descarga el paquete que se conserva en [distribucion](../distribucion/DesiertoSeguro-0.3-DMM.zip); en GitHub pulsa **Download raw file**. [GitHub Actions también permite recompilarlo](COMPILAR.md). El mod es experimental. Incluye capacidades implementadas, rutas bloqueadas por datos y alternativas de alcance limitado; revisa la tabla de `README.md` antes de usarlo. No se presenta como cumplimiento de todas las funciones originales al 100 %.
 
 ## Qué se verificó de DMM
 
