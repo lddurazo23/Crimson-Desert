@@ -1,0 +1,55 @@
+name: Compilar ASI de Windows
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ['main', 'master']
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  compilar:
+    name: Compilar y revisar DLL x64
+    needs: pruebas-portatiles
+    runs-on: windows-2022
+    timeout-minutes: 20
+    steps:
+      - name: Obtener el proyecto
+        uses: actions/checkout@v4
+      - name: Configurar compilación x64
+        run: cmake -S . -B build -G "Visual Studio 17 2022" -A x64
+      - name: Compilar ASI
+        run: cmake --build build --config Release --parallel
+      - name: Verificar integridad y formato de Windows
+        run: ctest --test-dir build -C Release --output-on-failure
+      - name: Preparar ASI, instrucciones y licencias
+        shell: powershell
+        run: ./scripts/empacar.ps1 -Archivo build/Release/DesiertoSeguro.asi
+      - name: Entregar paquete para DMM
+        uses: actions/upload-artifact@v4
+        with:
+          name: DesiertoSeguro-0.3-DMM
+          path: paquete/*
+          if-no-files-found: error
+          retention-days: 30
+      - name: Entregar diagnóstico de compilación
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Diagnostico-de-compilacion
+          path: |
+            build/CMakeFiles/CMakeConfigureLog.yaml
+            build/Testing/Temporary/LastTest.log
+          if-no-files-found: ignore
+
+  pruebas-portatiles:
+    name: Simular validaciones y restauracion
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Obtener el proyecto
+        uses: actions/checkout@v4
+      - name: Probar implementaciones con memoria sintetica
+        run: python3 scripts/probar_portatil.py

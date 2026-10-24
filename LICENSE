@@ -1,0 +1,17 @@
+SPDX-License-Identifier: MIT
+
+Copyright (c) 2026 Colaboradores de DesiertoSeguro
+
+Se concede permiso, sin costo, a cualquier persona que obtenga una copia de este
+software y sus archivos de documentación asociados para usarlo, copiarlo,
+modificarlo, integrarlo, publicarlo, distribuirlo, sublicenciarlo y vender copias,
+y para permitir lo mismo a quienes reciban el software, sujeto a que este aviso
+de derechos de autor y permiso se incluya en toda copia o parte sustancial.
+
+EL SOFTWARE SE ENTREGA TAL CUAL, SIN GARANTÍAS EXPRESAS NI IMPLÍCITAS, INCLUIDAS
+COMERCIABILIDAD, IDONEIDAD PARA UN FIN PARTICULAR Y AUSENCIA DE INFRACCIÓN.
+LOS AUTORES O TITULARES NO SERÁN RESPONSABLES POR RECLAMOS, DAÑOS U OTRAS
+RESPONSABILIDADES DERIVADAS DEL SOFTWARE, SU USO O CUALQUIER OTRO TRATO CON ÉL.
+
+Este aviso cubre el código nuevo. Las dependencias y adaptaciones conservan sus
+licencias originales, incluidas en terceros/ y en el paquete de distribución.

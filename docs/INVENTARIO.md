@@ -1,0 +1,15 @@
+# Editor de inventario
+
+El adaptador reutiliza el procedimiento de creación publicado por [Trinity, revisión 70c9a00](https://github.com/XeTrinityz/Trinity/tree/70c9a00dd6e10b2081d706a837756844c11f5c2b). Esos datos corresponden a la compilación que investigó su autor; no se ha comprobado que sigan vigentes en tu ejecutable. La licencia MIT del código original está en `terceros/trinity/LICENSE`.
+
+El menú recibe copias de los objetos y del catálogo que el adaptador leyó en un hilo del motor. Los nombres y categorías provienen del idioma instalado del juego. Para agregar un objeto se usa su definición real del catálogo, el generador de identificadores de instancia, el constructor, el planeador de inserción, la confirmación y los destructores publicados por Trinity. No se crean objetos copiando bytes de otro objeto.
+
+Las solicitudes se ejecutan después de la llamada original del tick de movimiento publicado por el fork Trinity `96e72fe53a387989f6c8d18a32f5692dd6b7cdaa`, en `teleport.cpp:1943,2025`. El mismo contexto de motor se usa para equipo, reglas de delitos y acciones regionales. Hay exclusión para evitar trabajo simultáneo o reentrante. El menú únicamente encola solicitudes: no llama al constructor desde el hilo del renderizador. Si no se encuentra una coincidencia única del tick, las ediciones quedan bloqueadas. Se eliminaron los caminos alternativos del reloj y de consulta de cantidades. Una solicitud de inventario queda pendiente hasta que se pueda verificar el inventario visual y su mirror de autoridad. Antes de modificar cantidades o borrar, el identificador de instancia y la cantidad actual deben coincidir en los dos mirrors. La selección se identifica por instancia, de modo que un reordenamiento de la lista no cambie el objeto seleccionado.
+
+El catálogo respeta el máximo de stack de cada definición y aplica además un tope de 100,000 por solicitud. Los objetos cuyo identificador no sea válido o se repita se muestran sin edición. Un inventario completamente vacío puede quedar esperando porque falta una identidad de objeto con la cual comprobar el mirror.
+
+Si una creación queda parcial, falla la restauración del TLS o se detecta una excepción, el editor bloquea las siguientes operaciones durante esa sesión. La operación entre los dos mirrors no es una transacción atómica del juego: no se garantiza deshacerla ni recuperar una partida. Cierra el juego y restaura tu respaldo antes de continuar. Desactivar el editor cancela solicitudes pendientes; no deshace objetos o cambios que ya se hayan guardado.
+
+El adaptador necesita una validación real en el ejecutable correspondiente antes de considerarse confiable. Las verificaciones de compilación y los controles de punteros no sustituyen esa prueba.
+
+El contexto de llamada procede de código público y no se ha comprobado dentro del juego de este usuario. Tener un hilo del motor no prueba por sí solo que cada contrato, fase o copia corresponda a otra versión. Los perfiles del inventario legado y del clima moderno se validan por separado.

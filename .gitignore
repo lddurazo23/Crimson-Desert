@@ -1,0 +1,8 @@
+build/
+build-cruzada/
+paquete/
+__pycache__/
+*.pyc
+*.log
+*.user
+*.suo

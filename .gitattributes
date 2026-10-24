@@ -1,0 +1,7 @@
+* text eol=lf
+*.bat text eol=crlf
+*.ps1 text eol=crlf
+# La verificación de dependencias compara los bytes de los blobs originales.
+terceros/** -text
+*.asi -text
+*.zip -text
